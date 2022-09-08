@@ -4,6 +4,7 @@
  */
 package br.com.encoreb.telas;
 
+import Conector.ModuloConexao;
 import java.sql.*;
 import br.com.encoreb.dao.ClienteDAO;
 import java.awt.Color;
@@ -15,11 +16,11 @@ import javax.swing.JOptionPane;
  */
 public class TelaLogin2 extends javax.swing.JFrame {
 
-        Connection conexao = null;
-        PreparedStatement pst = null;
-        ResultSet rs = null;
-        
-        public void logar() {
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
+    public void logar() {
         String sql = "select * from tblusers where login=? and senha=?";
         try {
             //as linhas abaixo preparama consulta ao banco de dados em função do 
@@ -32,17 +33,17 @@ public class TelaLogin2 extends javax.swing.JFrame {
             //a linha abaixo executa a query.
             rs = pst.executeQuery();
             //se existir usuario e senha correspondentes.
-            
+
             if (rs.next()) {
                 String perfil = rs.getString(6);
                 //System.out.println(perfil);
-                
+
                 if (perfil.equals("admin")) {
                     TelaPrincipal principal = new TelaPrincipal();
                     principal.setVisible(true);
                     TelaPrincipal.menRel.setEnabled(true);
                     TelaPrincipal.menCadUser.setEnabled(true);
-                    TelaPrincipal.lblUsuario.setText( rs.getString(2));
+                    TelaPrincipal.lblUsuario.setText(rs.getString(2));
                     TelaPrincipal.lblUsuario.setForeground(Color.green);
                     this.dispose();
                 } else {
@@ -66,13 +67,18 @@ public class TelaLogin2 extends javax.swing.JFrame {
      */
     public TelaLogin2() {
         initComponents();
-        conexao = ClienteDAO.conector();
-        //System.out.println(conexao); 
-        if (conexao != null) {
-            lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/check-mark(1).png")));
-        } else {
-            lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/forbidden.png")));
+        try {
+            conexao = ModuloConexao.getConnection();
+            //System.out.println(conexao); 
+            if (conexao != null) {
+                lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/check-mark(1).png")));
+            } else {
+                lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/forbidden.png")));
+            }
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
+
     }
 
     /**
@@ -126,8 +132,7 @@ public class TelaLogin2 extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUser)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(lblStatus)
@@ -148,9 +153,9 @@ public class TelaLogin2 extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblStatus)
-                    .addComponent(btnEntrar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEntrar)
+                    .addComponent(lblStatus))
                 .addGap(25, 25, 25))
         );
 

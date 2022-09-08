@@ -4,6 +4,7 @@
  */
 package br.com.encoreb.telas;
 
+import Conector.ModuloConexao;
 import br.com.encoreb.dao.ClienteDAO;
 import java.text.DateFormat;
 import java.util.Date;
@@ -22,7 +23,13 @@ Connection conexao = null;
      */
     public TelaPrincipal() {
         initComponents();
-        conexao = ClienteDAO.conector();
+        try{
+            conexao = ModuloConexao.getConnection();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error");
+        }
     }
 
     /**
