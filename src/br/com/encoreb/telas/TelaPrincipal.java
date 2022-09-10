@@ -51,6 +51,7 @@ Connection conexao = null;
         menCadFun = new javax.swing.JMenuItem();
         menCadRes = new javax.swing.JMenuItem();
         menCadUser = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menRel = new javax.swing.JMenu();
         menRelCli = new javax.swing.JMenuItem();
         menRelRes = new javax.swing.JMenuItem();
@@ -105,6 +106,10 @@ Connection conexao = null;
         menCadUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menCadUser.setText("Usuário");
         menCad.add(menCadUser);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItem1.setText("Quarto");
+        menCad.add(jMenuItem1);
 
         jMenuBar1.add(menCad);
 
@@ -212,6 +217,7 @@ Connection conexao = null;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lblData;
     public static javax.swing.JLabel lblUsuario;
     public static javax.swing.JMenu menCad;
