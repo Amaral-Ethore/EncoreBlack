@@ -21,7 +21,7 @@ public class TelaLogin2 extends javax.swing.JFrame {
     ResultSet rs = null;
 
     public void logar() {
-        String sql = "select * from tblusers where login=? and senha=?";
+        String sql = "select * from Funcionarios where login=? and senha=?";
         try {
             //as linhas abaixo preparama consulta ao banco de dados em função do 
             //que foi digitado nas caixas de texto. o ? é substituido pelo conteudo das variaveis.
