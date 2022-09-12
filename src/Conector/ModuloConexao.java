@@ -35,7 +35,7 @@ public class ModuloConexao {
         } catch (ClassNotFoundException | SQLException ex) {
 
             System.out.println(ex);
-
+            
             return null;
 
         }
