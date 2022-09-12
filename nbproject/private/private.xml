@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Ethor/Documents/NetBeansProjects/EncoreBlack/src/encoreblack/EncoreBlack.java</file>
-=======
-            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/ClienteDAO.java</file>
-            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encorebe/models/Cliente.java</file>
-            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/FuncionarioDAO.java</file>
-            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaLogin2.java</file>
->>>>>>> febbfd525866afaa7b5354c042ffa15d7d22e0cd
+            <file>file:/C:/Users/Ethor/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaPrincipal.java</file>
+            <file>file:/C:/Users/Ethor/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/Ethor/Documents/NetBeansProjects/EncoreBlack/src/Conector/ModuloConexao.java</file>
+            <file>file:/C:/Users/Ethor/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaLogin2.java</file>
         </group>
     </open-files>
 </project-private>
