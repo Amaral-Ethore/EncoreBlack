@@ -45,6 +45,8 @@ Connection conexao = null;
         lblUsuario = new javax.swing.JLabel();
         lblData = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menCad = new javax.swing.JMenu();
         menCadCli = new javax.swing.JMenuItem();
@@ -83,7 +85,11 @@ Connection conexao = null;
         lblData.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblData.setText("Data");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/nao-perturbe.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/naoMperturbe.png"))); // NOI18N
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/datas.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/cliente3.png"))); // NOI18N
 
         menCad.setText("Cadastro");
 
@@ -103,6 +109,7 @@ Connection conexao = null;
         menCad.add(menCadRes);
 
         menCadUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menCadUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/usuario-verificado.png"))); // NOI18N
         menCadUser.setText("Usuário");
         menCad.add(menCadUser);
 
@@ -111,10 +118,12 @@ Connection conexao = null;
         menRel.setText("Relatório");
 
         menRelCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menRelCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/cliente3.png"))); // NOI18N
         menRelCli.setText("clientes");
         menRel.add(menRelCli);
 
         menRelRes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menRelRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/reserva (1).png"))); // NOI18N
         menRelRes.setText("Reservas");
         menRel.add(menRelRes);
 
@@ -123,10 +132,12 @@ Connection conexao = null;
         menOpc.setText("Opções");
 
         menOpcAju.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menOpcAju.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/ajudando.png"))); // NOI18N
         menOpcAju.setText("Ajuda");
         menOpc.add(menOpcAju);
 
         menOpcSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menOpcSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/sair.png"))); // NOI18N
         menOpcSair.setText("Sair");
         menOpc.add(menOpcSair);
 
@@ -140,24 +151,30 @@ Connection conexao = null;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(lblUsuario)
-                .addGap(39, 39, 39)
-                .addComponent(lblData)
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUsuario)
+                    .addComponent(jLabel2))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblData)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
@@ -210,6 +227,8 @@ Connection conexao = null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lblData;
