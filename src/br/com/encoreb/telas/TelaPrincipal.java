@@ -26,12 +26,15 @@ Connection conexao = null;
         try{
             conexao = ModuloConexao.getConnection();
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
             System.out.println("Error");
         }
     }
-
+    public void TelaClie()
+    {
+        TelaCliente cliente = new TelaCliente();
+        cliente.setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,6 +94,11 @@ Connection conexao = null;
         menCadCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/cliente3.png"))); // NOI18N
         menCadCli.setText("Cliente");
+        menCadCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menCadCliActionPerformed(evt);
+            }
+        });
         menCad.add(menCadCli);
 
         menCadFun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -177,6 +185,10 @@ Connection conexao = null;
         DateFormat formatador = DateFormat.getDateInstance(DateFormat.SHORT);
         lblData.setText(formatador.format(data));         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
+
+    private void menCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadCliActionPerformed
+        TelaClie();
+    }//GEN-LAST:event_menCadCliActionPerformed
 
     /**
      * @param args the command line arguments
