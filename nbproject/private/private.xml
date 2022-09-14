@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaReserva.java</file>
+=======
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/Conector/ModuloConexao.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaCliente.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaPrincipal.java</file>
+>>>>>>> 34b8895c73e9327062c27dc2b2bfb6c41b8a9241
         </group>
     </open-files>
 </project-private>
