@@ -12,7 +12,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.ArrayList;import java.util.List;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,7 +36,7 @@ public class FuncionarioDAO {
             stmt = con.prepareStatement("SELECT * FROM funcionarios");
             rs = stmt.executeQuery(); // Executa o comando SQL
             /* Loop responsável pela busca dos dados no banco que o repetirá até que não
- haja valores */
+            haja valores */
             while (rs.next()) {
 
                 Funcionario funcionario = new Funcionario();
