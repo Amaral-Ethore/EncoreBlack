@@ -5,8 +5,8 @@
 package br.com.encoreb.dao;
 
 import Conector.ModuloConexao;
-import br.com.encorebe.models.Cliente;
-import br.com.encorebe.models.Funcionario;
+import br.com.encoreb.models.Cliente;
+import br.com.encoreb.models.Funcionario;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -53,7 +53,8 @@ public class FuncionarioDAO {
                 funcionario.setCargahoraria(rs.getString("cargahoraria"));
                 funcionario.setSalario(rs.getDouble("salario"));
                 funcionario.setSetor(rs.getString("setor"));
-
+                funcionario.setSenha(rs.getString("senha"));
+                funcionario.setLogin(rs.getString("usuario"));
                 funcionarios.add(funcionario); // Adiciona o objeto na lista
             }
         } catch (SQLException ex) { // Tratamento das exceções

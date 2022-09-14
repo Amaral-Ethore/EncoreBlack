@@ -7,6 +7,7 @@ package br.com.encoreb.telas;
 import Conector.ModuloConexao;
 import java.sql.*;
 import br.com.encoreb.dao.ClienteDAO;
+import br.com.encoreb.dao.LoginDAO;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -21,11 +22,10 @@ public class TelaLogin2 extends javax.swing.JFrame {
     ResultSet rs = null;
 
     public void logar() {
-        String sql = "select * from Funcionarios where usuario=? and senha=?";
         try {
             //as linhas abaixo preparama consulta ao banco de dados em função do 
             //que foi digitado nas caixas de texto. o ? é substituido pelo conteudo das variaveis.
-
+            LoginDAO login = new LoginDAO();
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtUser.getText());
             String captura = new String(txtSenha.getPassword());
