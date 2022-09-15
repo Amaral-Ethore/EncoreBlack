@@ -5,8 +5,8 @@
 package br.com.encoreb.dao;
 
 import Conector.ModuloConexao;
-import br.com.encorebe.models.Cliente;
-import br.com.encorebe.models.ClienteQuarto;
+import br.com.encoreb.models.Cliente;
+import br.com.encoreb.models.ClienteQuarto;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
