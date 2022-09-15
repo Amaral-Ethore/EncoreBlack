@@ -33,6 +33,33 @@ public class LoginDAO
             {
                 Funcionario func = new Funcionario();
                 func.getUsuario();
+                
+                funcionario.add(func);
+            }
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println("Erro: " + e);
+        }
+        return funcionario;
+    }
+    
+    public List<Funcionario> getSenha() throws SQLException, ClassNotFoundException
+    {
+        List<Funcionario> funcionario = new ArrayList();
+        Connection conexao = ModuloConexao.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try
+        {
+            stmt = conexao.prepareStatement("select * from funcionarios");
+            rs = stmt.executeQuery();
+            
+            while(rs.next())
+            {
+                Funcionario func = new Funcionario();
                 func.getSenha();
                 
                 funcionario.add(func);
