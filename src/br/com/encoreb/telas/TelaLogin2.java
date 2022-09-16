@@ -7,6 +7,9 @@ package br.com.encoreb.telas;
 import Conector.ModuloConexao;
 import java.sql.*;
 import br.com.encoreb.dao.ClienteDAO;
+import br.com.encoreb.dao.FuncionarioDAO;
+import br.com.encoreb.dao.LoginDAO;
+import br.com.encoreb.models.Funcionario;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -21,44 +24,29 @@ public class TelaLogin2 extends javax.swing.JFrame {
     ResultSet rs = null;
 
     public void logar() {
-        String sql = "select * from Funcionarios where usuario=? and senha=?";
-        try {
-            //as linhas abaixo preparama consulta ao banco de dados em função do 
-            //que foi digitado nas caixas de texto. o ? é substituido pelo conteudo das variaveis.
-
-            pst = conexao.prepareStatement(sql);
-            pst.setString(1, txtUser.getText());
-            String captura = new String(txtSenha.getPassword());
-            pst.setString(2, captura);
-            //a linha abaixo executa a query.
-            rs = pst.executeQuery();
-            //se existir usuario e senha correspondentes.
-
-            if (rs.next()) {
-                String login = rs.getString(6);
-                //System.out.println(perfil);
-
-                if (login.equals("admin")) {
-                    TelaPrincipal principal = new TelaPrincipal();
-                    principal.setVisible(true);
-                    TelaPrincipal.menRel.setEnabled(true);
-                    TelaPrincipal.menCadUser.setEnabled(true);
-                    TelaPrincipal.lblUsuario.setText(rs.getString(2));
-                    TelaPrincipal.lblUsuario.setForeground(Color.green);
-                    this.dispose();
-                } else {
-                    TelaPrincipal principal = new TelaPrincipal();
-                    principal.setVisible(true);
-                    TelaPrincipal.lblUsuario.setText(rs.getString(2));
-                    TelaPrincipal.lblUsuario.setForeground(Color.blue);
-                    this.dispose();
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuario e/ou senha Invalido(s)");
+        LoginDAO logindao = new LoginDAO();
+        Funcionario func = new Funcionario();
+//        func = logindao.getLogin(usuario, senha, funcao);
+        try
+        {
+            if(func != null)
+            {
+//                if(func.getFuncao()== "Admin")
+//                {
+//                        TelaPrincipal tela = new TelaPrincipal();
+//                        tela.setVisible(true);
+//                        TelaPrincipal.menRel.setEnabled(false);
+//                }
+                 
             }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            else
+            {
+                System.out.println("Usuario Invalido");
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Codigo do Erro: " + e);
         }
     }
 
