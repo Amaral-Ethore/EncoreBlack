@@ -26,17 +26,17 @@ public class TelaLogin2 extends javax.swing.JFrame {
     public void logar() {
         LoginDAO logindao = new LoginDAO();
         Funcionario func = new Funcionario();
-//        func = logindao.getLogin(usuario, senha, funcao);
+        
         try
         {
             if(func != null)
             {
-//                if(func.getFuncao()== "Admin")
-//                {
-//                        TelaPrincipal tela = new TelaPrincipal();
-//                        tela.setVisible(true);
-//                        TelaPrincipal.menRel.setEnabled(false);
-//                }
+                if(func.getFuncao()== "Admin")
+                {
+                        TelaPrincipal tela = new TelaPrincipal();
+                        tela.setVisible(true);
+                        TelaPrincipal.menRel.setEnabled(false);
+                }
                  
             }
             else
@@ -152,12 +152,11 @@ public class TelaLogin2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        //  Método logar
         logar();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     /**
