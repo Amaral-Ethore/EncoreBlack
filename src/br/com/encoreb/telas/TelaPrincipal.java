@@ -35,6 +35,12 @@ Connection conexao = null;
         TelaCliente cliente = new TelaCliente();
         cliente.setVisible(true);
     }
+    
+    public void TelaSobre()
+    {
+        TelaSobre sobre = new TelaSobre();
+        sobre.setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,9 +67,9 @@ Connection conexao = null;
         menOpc = new javax.swing.JMenu();
         menOpcAju = new javax.swing.JMenuItem();
         menOpcSair = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(915, 523));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -112,10 +118,12 @@ Connection conexao = null;
         menCad.add(menCadRes);
 
         menCadUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menCadUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/perfil-de-usuario.png"))); // NOI18N
         menCadUser.setText("Usuário");
         menCad.add(menCadUser);
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/quarto.png"))); // NOI18N
         jMenuItem1.setText("Quarto");
         menCad.add(jMenuItem1);
 
@@ -124,10 +132,12 @@ Connection conexao = null;
         menRel.setText("Relatório");
 
         menRelCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menRelCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/cliente3.png"))); // NOI18N
         menRelCli.setText("clientes");
         menRel.add(menRelCli);
 
         menRelRes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        menRelRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/reserva (1).png"))); // NOI18N
         menRelRes.setText("Reservas");
         menRel.add(menRelRes);
 
@@ -136,12 +146,29 @@ Connection conexao = null;
         menOpc.setText("Opções");
 
         menOpcAju.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menOpcAju.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/ajuda.png"))); // NOI18N
         menOpcAju.setText("Ajuda");
         menOpc.add(menOpcAju);
 
         menOpcSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menOpcSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/sair.png"))); // NOI18N
         menOpcSair.setText("Sair");
+        menOpcSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menOpcSairActionPerformed(evt);
+            }
+        });
         menOpc.add(menOpcSair);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/sobre.png"))); // NOI18N
+        jMenuItem2.setText("Sobre");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menOpc.add(jMenuItem2);
 
         jMenuBar1.add(menOpc);
 
@@ -190,6 +217,18 @@ Connection conexao = null;
         TelaClie();
     }//GEN-LAST:event_menCadCliActionPerformed
 
+    private void menOpcSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menOpcSairActionPerformed
+        // Exibe uma caixa de diálogo
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (sair == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_menOpcSairActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        TelaSobre();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -230,6 +269,7 @@ Connection conexao = null;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel lblData;
     public static javax.swing.JLabel lblUsuario;
     public static javax.swing.JMenu menCad;
