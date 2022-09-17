@@ -29,7 +29,6 @@ public class TelaLogin2 extends javax.swing.JFrame {
         
         try
         {
-            
             func = logindao.getLogin(txtUser.getText(),new String(txtSenha.getPassword()));
             if(func != null)
             {
@@ -46,12 +45,15 @@ public class TelaLogin2 extends javax.swing.JFrame {
                     case "Funcionario":
                         tela.setVisible(true);
                         break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Função Invalida.");
                 }
             }
             else
             {
                 System.out.println("Usuario Invalido");
             }
+            TelaPrincipal.setNomeusuario(func.getNome());
         }
         catch(Exception e)
         {
