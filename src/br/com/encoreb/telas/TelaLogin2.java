@@ -29,15 +29,24 @@ public class TelaLogin2 extends javax.swing.JFrame {
         
         try
         {
+            
+            func = logindao.getLogin(txtUser.getText(),new String(txtSenha.getPassword()));
             if(func != null)
             {
-                if(func.getFuncao()== "Admin")
+                TelaPrincipal tela = new TelaPrincipal();                
+                
+                switch(func.getFuncao())
                 {
-                        TelaPrincipal tela = new TelaPrincipal();
+                    case "Administrador":
                         tela.setVisible(true);
-                        TelaPrincipal.menRel.setEnabled(false);
+                        break;
+                    case "Gerente":
+                        tela.setVisible(true);
+                        break;
+                    case "Funcionario":
+                        tela.setVisible(true);
+                        break;
                 }
-                 
             }
             else
             {
@@ -46,7 +55,8 @@ public class TelaLogin2 extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("Codigo do Erro: " + e);
+            JOptionPane.showMessageDialog(null, e + ": Usuario Não encontrado");
+            
         }
     }
 

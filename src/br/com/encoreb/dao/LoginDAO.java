@@ -18,7 +18,7 @@ import java.sql.PreparedStatement;
  */
 public class LoginDAO {
 
-    public Funcionario getLogin(String usuario, String senha, String funcao) throws SQLException, ClassNotFoundException {
+    public Funcionario getLogin(String usuario, String senha) throws SQLException, ClassNotFoundException {
        
         Connection conexao = ModuloConexao.getConnection();
         ResultSet rs = null;
@@ -26,11 +26,10 @@ public class LoginDAO {
 
         try {
             PreparedStatement stmt = null;
-            stmt = conexao.prepareStatement("select * from funcionarios WHERE usuario = ? and senha = ? and funcao = ?");
+            stmt = conexao.prepareStatement("select * from funcionarios WHERE usuario = ? and senha = ?");
             
             stmt.setString(1, usuario);
             stmt.setString(2, senha);
-            stmt.setString(3, funcao);
             rs = stmt.executeQuery();
             
             while (rs.next()) {
