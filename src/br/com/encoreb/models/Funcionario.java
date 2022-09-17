@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.encorebe.models;
+package br.com.encoreb.models;
 
 import java.sql.Date;
 
@@ -16,6 +16,34 @@ public class Funcionario extends Pessoa {
     private String funcao;
     private String cargahoraria;
     private String setor;
+    private String usuario;
+    private String senha;
+    
+
+    public Funcionario(){
+        
+    }
+    
+    public Funcionario( double salario,String funcao,String cargahoraria,String nome, String sexo, String rg,String cpf, String telefone,String email, String endereco, Date nascimento){
+       
+        super (nome,sexo, rg,cpf,telefone,email, endereco, nascimento);        
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
     public String getSetor() {
         return setor;
@@ -25,15 +53,6 @@ public class Funcionario extends Pessoa {
         this.setor = setor;
     }
     
-    public Funcionario(){
-        
-    }
-    public Funcionario( double salario,String funcao,String cargahoraria,String nome, String sexo, String rg,String cpf, String telefone,String email, String endereco, Date nascimento){
-       
-        super (nome,sexo, rg,cpf,telefone,email, endereco, nascimento);
-        
-    }
-
     @Override
     public int getId() {
         return id;

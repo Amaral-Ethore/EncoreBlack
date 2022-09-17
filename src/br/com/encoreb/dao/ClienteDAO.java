@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import br.com.encorebe.models.Cliente;
+import br.com.encoreb.models.Cliente;
 
 /**
  *
