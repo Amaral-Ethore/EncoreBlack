@@ -15,12 +15,12 @@ public class Pessoa {
     private int id;
     private String nome;
     private String sexo;
+    private Date nascimento;
     private String rg;
     private String cpf;
     private String telefone;
     private String email;
     private String endereco;
-    private Date nascimento;
     
     public Pessoa(){
         

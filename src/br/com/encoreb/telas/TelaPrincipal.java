@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 
 
@@ -33,15 +34,28 @@ Connection conexao = null;
     }
     public void TelaClie()
     {
-        Tela_Cliente cliente = new Tela_Cliente();
+        TelaCliente cliente = new TelaCliente();
         cliente.setVisible(true);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         Desktop.add(cliente);
     }
     
+    public void TelaFunc()
+    {
+        TelaFuncionario func = new TelaFuncionario();
+        func.setVisible(true);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        Desktop.add(func);        
+    }
     public void TelaSobre()
     {
-        Tela_Sobre sobre = new Tela_Sobre();
+        TelaSobre sobre = new TelaSobre();
         sobre.setVisible(true);
+    }
+    
+    public static void setNomeusuario(String username)
+    {
+        lblUsuario.setText(username);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,6 +129,11 @@ Connection conexao = null;
         menCadFun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menCadFun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/funcionarios (2).png"))); // NOI18N
         menCadFun.setText("Funcionários");
+        menCadFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menCadFunActionPerformed(evt);
+            }
+        });
         menCad.add(menCadFun);
 
         menCadRes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -192,20 +211,20 @@ Connection conexao = null;
                             .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(70, 70, 70)
                 .addComponent(lblUsuario)
-                .addGap(39, 39, 39)
+                .addGap(26, 26, 26)
                 .addComponent(lblData)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
+                .addGap(170, 170, 170))
             .addComponent(Desktop, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
         );
 
@@ -233,6 +252,11 @@ Connection conexao = null;
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         TelaSobre();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void menCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadFunActionPerformed
+        // TODO add your handling code here:
+        TelaFunc();
+    }//GEN-LAST:event_menCadFunActionPerformed
 
     /**
      * @param args the command line arguments
