@@ -7,65 +7,69 @@ package br.com.encoreb.telas;
 import Conector.ModuloConexao;
 import java.sql.*;
 import br.com.encoreb.dao.ClienteDAO;
+import br.com.encoreb.dao.FuncionarioDAO;
+import br.com.encoreb.dao.LoginDAO;
+import br.com.encoreb.models.Funcionario;
 import java.awt.Color;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Aluno
  */
-public class TelaLogin2 extends javax.swing.JFrame {
+public class TelaLogin extends javax.swing.JFrame {
 
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
 
     public void logar() {
-        String sql = "select * from Funcionarios where usuario=? and senha=?";
-        try {
-            //as linhas abaixo preparama consulta ao banco de dados em função do 
-            //que foi digitado nas caixas de texto. o ? é substituido pelo conteudo das variaveis.
-
-            pst = conexao.prepareStatement(sql);
-            pst.setString(1, txtUser.getText());
-            String captura = new String(txtSenha.getPassword());
-            pst.setString(2, captura);
-            //a linha abaixo executa a query.
-            rs = pst.executeQuery();
-            //se existir usuario e senha correspondentes.
-
-            if (rs.next()) {
-                String login = rs.getString(6);
-                //System.out.println(perfil);
-
-                if (login.equals("admin")) {
-                    TelaPrincipal principal = new TelaPrincipal();
-                    principal.setVisible(true);
-                    TelaPrincipal.menRel.setEnabled(true);
-                    TelaPrincipal.menCadUser.setEnabled(true);
-                    TelaPrincipal.lblUsuario.setText(rs.getString(2));
-                    TelaPrincipal.lblUsuario.setForeground(Color.green);
-                    this.dispose();
-                } else {
-                    TelaPrincipal principal = new TelaPrincipal();
-                    principal.setVisible(true);
-                    TelaPrincipal.lblUsuario.setText(rs.getString(2));
-                    TelaPrincipal.lblUsuario.setForeground(Color.blue);
-                    this.dispose();
+        LoginDAO logindao = new LoginDAO();
+        Funcionario func = new Funcionario();
+        
+        try
+        {
+            func = logindao.getLogin(txtUser.getText(),new String(txtSenha.getPassword()));
+            if(func != null)
+            {
+                TelaPrincipal tela = new TelaPrincipal();                
+                
+                switch(func.getFuncao())
+                {
+                    case "Administrador":
+                        tela.setVisible(true);
+                        tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        break;
+                    case "Gerente":
+                       tela.setVisible(true);
+                       tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        break;
+                    case "Funcionario":
+                        tela.setVisible(true);
+                        tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Função Invalida.");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuario e/ou senha Invalido(s)");
             }
-
-        } catch (Exception e) {
+            else
+            {
+                System.out.println("Usuario Invalido");
+            }
+            TelaPrincipal.setNomeusuario(func.getNome());
+        }
+        catch(Exception e)
+        {
             JOptionPane.showMessageDialog(null, e);
+            
         }
     }
 
     /**
      * Creates new form TelaLogin2
      */
-    public TelaLogin2() {
+    public TelaLogin() {
         initComponents();
         try {
             conexao = ModuloConexao.getConnection();
@@ -164,12 +168,11 @@ public class TelaLogin2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        //  Método logar
         logar();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     /**
@@ -189,20 +192,21 @@ public class TelaLogin2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin2().setVisible(true);
+                new TelaLogin().setVisible(true);
             }
         });
     }
