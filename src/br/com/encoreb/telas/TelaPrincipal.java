@@ -33,14 +33,20 @@ Connection conexao = null;
     }
     public void TelaClie()
     {
-        Tela_Cliente cliente = new Tela_Cliente();
+        TelaCliente cliente = new TelaCliente();
         cliente.setVisible(true);
         Desktop.add(cliente);
     }
     
+    public void TelaFunc()
+    {
+        TelaFuncionario func = new TelaFuncionario();
+        func.setVisible(true);
+        Desktop.add(func);        
+    }
     public void TelaSobre()
     {
-        Tela_Sobre sobre = new Tela_Sobre();
+        TelaSobre sobre = new TelaSobre();
         sobre.setVisible(true);
     }
     
@@ -120,6 +126,11 @@ Connection conexao = null;
         menCadFun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menCadFun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/funcionarios (2).png"))); // NOI18N
         menCadFun.setText("Funcionários");
+        menCadFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menCadFunActionPerformed(evt);
+            }
+        });
         menCad.add(menCadFun);
 
         menCadRes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -238,6 +249,11 @@ Connection conexao = null;
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         TelaSobre();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void menCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadFunActionPerformed
+        // TODO add your handling code here:
+        TelaFunc();
+    }//GEN-LAST:event_menCadFunActionPerformed
 
     /**
      * @param args the command line arguments

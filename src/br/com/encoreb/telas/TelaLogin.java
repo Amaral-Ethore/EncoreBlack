@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author Aluno
  */
-public class TelaLogin2 extends javax.swing.JFrame {
+public class TelaLogin extends javax.swing.JFrame {
 
     Connection conexao = null;
     PreparedStatement pst = null;
@@ -65,7 +65,7 @@ public class TelaLogin2 extends javax.swing.JFrame {
     /**
      * Creates new form TelaLogin2
      */
-    public TelaLogin2() {
+    public TelaLogin() {
         initComponents();
         try {
             conexao = ModuloConexao.getConnection();
@@ -188,20 +188,21 @@ public class TelaLogin2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin2().setVisible(true);
+                new TelaLogin().setVisible(true);
             }
         });
     }
