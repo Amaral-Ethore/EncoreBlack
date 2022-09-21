@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 
 
@@ -35,6 +36,7 @@ Connection conexao = null;
     {
         TelaCliente cliente = new TelaCliente();
         cliente.setVisible(true);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         Desktop.add(cliente);
     }
     
@@ -42,6 +44,7 @@ Connection conexao = null;
     {
         TelaFuncionario func = new TelaFuncionario();
         func.setVisible(true);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         Desktop.add(func);        
     }
     public void TelaSobre()

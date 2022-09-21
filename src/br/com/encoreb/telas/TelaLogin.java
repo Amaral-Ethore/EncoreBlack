@@ -11,6 +11,7 @@ import br.com.encoreb.dao.FuncionarioDAO;
 import br.com.encoreb.dao.LoginDAO;
 import br.com.encoreb.models.Funcionario;
 import java.awt.Color;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -38,12 +39,15 @@ public class TelaLogin extends javax.swing.JFrame {
                 {
                     case "Administrador":
                         tela.setVisible(true);
+                        tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         break;
                     case "Gerente":
-                        tela.setVisible(true);
+                       tela.setVisible(true);
+                       tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         break;
                     case "Funcionario":
                         tela.setVisible(true);
+                        tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Função Invalida.");
@@ -57,7 +61,7 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null, e + ": Usuario Não encontrado");
+            JOptionPane.showMessageDialog(null, e);
             
         }
     }
