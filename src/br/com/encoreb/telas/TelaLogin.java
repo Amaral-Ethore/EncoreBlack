@@ -37,7 +37,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 
                 switch(func.getFuncao())
                 {
-                    case "Administrador":
+                    case "Admin":
                         tela.setVisible(true);
                         tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         break;
