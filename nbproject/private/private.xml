@@ -3,24 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/ClienteDAO.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/Conector/ModuloConexao.java</file>
-            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encorebe/models/Cliente.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encorebe/models/Pessoa.java</file>
-            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encorebe/models/Quarto.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaFuncionarios.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaPrincipal.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/FuncionarioDAO.java</file>
-            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encorebe/models/ClienteQuarto.java</file>
-            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/ClienteQuartoDAO.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaLogin2.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encorebe/models/Funcionario.java</file>
-=======
-            <file>file:/C:/Users/Ethor/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaPrincipal.java</file>
-            <file>file:/C:/Users/Ethor/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/ClienteDAO.java</file>
-            <file>file:/C:/Users/Ethor/Documents/NetBeansProjects/EncoreBlack/src/Conector/ModuloConexao.java</file>
-            <file>file:/C:/Users/Ethor/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaLogin2.java</file>
->>>>>>> f4e5fd2c3b86c558e3fb36a549b9c636149f6864
         </group>
     </open-files>
 </project-private>

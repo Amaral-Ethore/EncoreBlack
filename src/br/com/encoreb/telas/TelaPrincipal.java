@@ -35,6 +35,11 @@ Connection conexao = null;
         TelaCliente cliente = new TelaCliente();
         cliente.setVisible(true);
     }
+    
+    public void TelaFuncionario(){
+        TelaFuncionarios funcionario = new TelaFuncionarios();
+        funcionario.setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,6 +109,11 @@ Connection conexao = null;
         menCadFun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menCadFun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/funcionarios (2).png"))); // NOI18N
         menCadFun.setText("Funcionários");
+        menCadFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menCadFunActionPerformed(evt);
+            }
+        });
         menCad.add(menCadFun);
 
         menCadRes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -189,6 +199,10 @@ Connection conexao = null;
     private void menCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadCliActionPerformed
         TelaClie();
     }//GEN-LAST:event_menCadCliActionPerformed
+
+    private void menCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadFunActionPerformed
+        TelaFuncionario();
+    }//GEN-LAST:event_menCadFunActionPerformed
 
     /**
      * @param args the command line arguments

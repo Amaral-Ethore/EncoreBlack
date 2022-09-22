@@ -109,7 +109,7 @@ public class FuncionarioDAO {
         try {
 
             // Inserindo o comando SQL a ser usado
-            stmt = con.prepareStatement("INSERT INTO funcionarios VALUES (DEFAULT,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+            stmt = con.prepareStatement("INSERT INTO funcionarios VALUES (DEFAULT,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)");
 
             // O método setString, define que o valor passado será do tipo inteiro
             stmt.setString(1, f.getNome());
@@ -124,6 +124,8 @@ public class FuncionarioDAO {
             stmt.setString(10, f.getFuncao());
             stmt.setString(11, f.getSetor());
             stmt.setString(12, f.getCargahoraria());
+            stmt.setString(13, f.getLogin());
+            stmt.setString(14, f.getSenha());
 
             // Método responsável por fazer a alteração no banco de dados
             stmt.executeUpdate();
@@ -149,7 +151,7 @@ public class FuncionarioDAO {
         con.setAutoCommit(false);
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("UPDATE clientes SET nome = ?, sexo = ?, nascimento = ?, RG = ?, CPF = ?, telefone = ?, email = ?, endereco =?, salario =?, funcao = ?,setor = ?, cargaHoraria = ? WHERE id = ?");
+            stmt = con.prepareStatement("UPDATE funcionarios SET nome = ?, sexo = ?, nascimento = ?, RG = ?, CPF = ?, telefone = ?, email = ?, endereco = ?, salario = ?, funcao = ?,setor = ?, cargaHoraria = ? WHERE id = ?");
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getSexo());
             stmt.setDate(3, new Date(funcionario.getNascimento().getTime()));
@@ -177,5 +179,54 @@ public class FuncionarioDAO {
             }
             con.setAutoCommit(true);
         }
+
+    }
+
+    public List<Funcionario> pesquisar(String termo) throws SQLException, ClassNotFoundException {
+        Connection con = ModuloConexao.getConnection();
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Funcionario> funcionarios = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("select * from  funcionarios where nome like ?");
+            stmt.setString(1, "%"+ termo + "%");
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Funcionario funcionario = new Funcionario();
+                funcionario.setId(rs.getInt("id"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setSexo(rs.getString("sexo"));
+                funcionario.setNascimento(rs.getDate("nascimento"));
+                funcionario.setRg(rs.getString("RG"));
+                funcionario.setCpf(rs.getString("CPF"));
+                funcionario.setTelefone(rs.getString("telefone"));
+                funcionario.setEmail(rs.getString("email"));
+                funcionario.setEndereco(rs.getString("endereco"));
+                funcionario.setFuncao(rs.getString("funcao"));
+                funcionario.setCargahoraria(rs.getString("cargahoraria"));
+                funcionario.setSalario(rs.getDouble("salario"));
+                funcionario.setSetor(rs.getString("setor"));
+
+                funcionarios.add(funcionario);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+
+            throw ex;
+
+        } finally {
+
+            if (stmt != null) {
+                stmt.close();
+            }
+            con.setAutoCommit(true);
+        }
+
+        return funcionarios;
+
     }
 }

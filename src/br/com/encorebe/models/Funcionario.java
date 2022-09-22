@@ -4,7 +4,9 @@
  */
 package br.com.encorebe.models;
 
-import java.sql.Date;
+import java.util.Date;
+
+
 
 /**
  *
@@ -16,6 +18,24 @@ public class Funcionario extends Pessoa {
     private String funcao;
     private String cargahoraria;
     private String setor;
+    private String senha;
+    private String login;
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
     public String getSetor() {
         return setor;
