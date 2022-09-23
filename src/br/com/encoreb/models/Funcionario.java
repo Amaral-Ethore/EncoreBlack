@@ -18,12 +18,9 @@ public class Funcionario extends Pessoa {
     private String funcao;
     private String cargahoraria;
     private String setor;
-<<<<<<< HEAD:src/br/com/encorebe/models/Funcionario.java
     private String senha;
     private String login;
-=======
     private String usuario;
-    private String senha;
     
 
     public Funcionario(){
@@ -42,7 +39,6 @@ public class Funcionario extends Pessoa {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
->>>>>>> fc93df99b9cb303a26beb9f7f6c4faabaf4d5cf1:src/br/com/encoreb/models/Funcionario.java
 
     public String getSenha() {
         return senha;
@@ -51,7 +47,6 @@ public class Funcionario extends Pessoa {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-<<<<<<< HEAD:src/br/com/encorebe/models/Funcionario.java
 
     public String getLogin() {
         return login;
@@ -60,8 +55,6 @@ public class Funcionario extends Pessoa {
     public void setLogin(String login) {
         this.login = login;
     }
-=======
->>>>>>> fc93df99b9cb303a26beb9f7f6c4faabaf4d5cf1:src/br/com/encoreb/models/Funcionario.java
 
     public String getSetor() {
         return setor;

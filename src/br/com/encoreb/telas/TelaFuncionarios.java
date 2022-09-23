@@ -5,7 +5,7 @@
 package br.com.encoreb.telas;
 
 import br.com.encoreb.dao.FuncionarioDAO;
-import br.com.encorebe.models.Funcionario;
+import br.com.encoreb.models.Funcionario;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -410,17 +410,21 @@ public class TelaFuncionarios extends javax.swing.JFrame {
 
         this.modelo.setNumRows(0);
         FuncionarioDAO dao = new FuncionarioDAO();
+
         try {
             funcionarios = dao.pesquisar(txtPesquisa.getText());
-            for (Funcionario f : funcionarios) {
-                this.modelo.addRow(new Object[]{f.getId(), f.getNome(), f.getNascimento(), f.getCpf(), f.getTelefone()});
-
-            }
         } catch (SQLException ex) {
             Logger.getLogger(TelaFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TelaFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
         }
+        for (Funcionario f : funcionarios) {
+            this.modelo.addRow(new Object[]{f.getId(), f.getNome(), f.getNascimento(), f.getCpf(), f.getTelefone()});
+
+        }
+
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(TelaFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
 
     }//GEN-LAST:event_btnPesquisarActionPerformed
 

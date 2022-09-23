@@ -42,7 +42,7 @@ Connection conexao = null;
     
     public void TelaFunc()
     {
-        TelaFuncionario func = new TelaFuncionario();
+        TelaFuncionarios func = new TelaFuncionarios();
         func.setVisible(true);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         Desktop.add(func);        
@@ -78,7 +78,7 @@ Connection conexao = null;
         jMenuBar1 = new javax.swing.JMenuBar();
         menCad = new javax.swing.JMenu();
         menCadCli = new javax.swing.JMenuItem();
-        menCadFun = new javax.swing.JMenuItem();
+        menCadFunc = new javax.swing.JMenuItem();
         menCadRes = new javax.swing.JMenuItem();
         menCadUser = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -87,7 +87,7 @@ Connection conexao = null;
         menRelRes = new javax.swing.JMenuItem();
         menOpc = new javax.swing.JMenu();
         menOpcAju = new javax.swing.JMenuItem();
-        menOpcSair = new javax.swing.JMenuItem();
+        menCadSair = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -131,15 +131,15 @@ Connection conexao = null;
         });
         menCad.add(menCadCli);
 
-        menCadFun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        menCadFun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/funcionarios (2).png"))); // NOI18N
-        menCadFun.setText("Funcionários");
-        menCadFun.addActionListener(new java.awt.event.ActionListener() {
+        menCadFunc.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menCadFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/funcionarios (2).png"))); // NOI18N
+        menCadFunc.setText("Funcionários");
+        menCadFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menCadFunActionPerformed(evt);
+                menCadFuncActionPerformed(evt);
             }
         });
-        menCad.add(menCadFun);
+        menCad.add(menCadFunc);
 
         menCadRes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menCadRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/reserva (1).png"))); // NOI18N
@@ -179,15 +179,15 @@ Connection conexao = null;
         menOpcAju.setText("Ajuda");
         menOpc.add(menOpcAju);
 
-        menOpcSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        menOpcSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/sair.png"))); // NOI18N
-        menOpcSair.setText("Sair");
-        menOpcSair.addActionListener(new java.awt.event.ActionListener() {
+        menCadSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menCadSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/sair.png"))); // NOI18N
+        menCadSair.setText("Sair");
+        menCadSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menOpcSairActionPerformed(evt);
+                menCadSairActionPerformed(evt);
             }
         });
-        menOpc.add(menOpcSair);
+        menOpc.add(menCadSair);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/sobre.png"))); // NOI18N
@@ -246,27 +246,28 @@ Connection conexao = null;
         TelaClie();
     }//GEN-LAST:event_menCadCliActionPerformed
 
-<<<<<<< HEAD
-    private void menCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadFunActionPerformed
+
+    private void menCadFunActionPerformed(java.awt.event.ActionEvent evt) {                                          
         TelaFuncionario();
-=======
-    private void menOpcSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menOpcSairActionPerformed
+    }
+
+    private void menCadSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadSairActionPerformed
         // Exibe uma caixa de diálogo
         int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
         if (sair == JOptionPane.YES_OPTION){
             System.exit(0);
         }
-    }//GEN-LAST:event_menOpcSairActionPerformed
+    }//GEN-LAST:event_menCadSairActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         TelaSobre();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void menCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadFunActionPerformed
+    private void menCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadFuncActionPerformed
         // TODO add your handling code here:
         TelaFunc();
->>>>>>> fc93df99b9cb303a26beb9f7f6c4faabaf4d5cf1
-    }//GEN-LAST:event_menCadFunActionPerformed
+
+    }//GEN-LAST:event_menCadFuncActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,12 +314,12 @@ Connection conexao = null;
     public static javax.swing.JLabel lblUsuario;
     public static javax.swing.JMenu menCad;
     private javax.swing.JMenuItem menCadCli;
-    private javax.swing.JMenuItem menCadFun;
+    private javax.swing.JMenuItem menCadFunc;
     private javax.swing.JMenuItem menCadRes;
+    private javax.swing.JMenuItem menCadSair;
     public static javax.swing.JMenuItem menCadUser;
     public static javax.swing.JMenu menOpc;
     private javax.swing.JMenuItem menOpcAju;
-    private javax.swing.JMenuItem menOpcSair;
     public static javax.swing.JMenu menRel;
     private javax.swing.JMenuItem menRelCli;
     private javax.swing.JMenuItem menRelRes;

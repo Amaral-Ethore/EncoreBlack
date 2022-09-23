@@ -9,7 +9,6 @@ import br.com.encoreb.dao.ClienteDAO;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
 
 /**
  *
