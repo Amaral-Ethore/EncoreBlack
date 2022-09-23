@@ -16,38 +16,38 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import br.com.encoreb.models.Reserva;
 /**
  *
  * @author Aluno
  */
-public class ClienteQuartoDAO {
+public class ReservaDAO {
 
-    public List<ClienteQuarto> Select() throws SQLException, ClassNotFoundException {
+    public List<Reserva> Select() throws SQLException, ClassNotFoundException {
 
         Connection con = ModuloConexao.getConnection(); // Busca uma conexão com o banco de dados
         PreparedStatement stmt = null;
         ResultSet rs = null; // Objeto que armazena o resultado de uma busca em uma estrutura de dados que pode ser percorrida
 // Instanciando uma nova lista para receber os valores do banco
-        List<ClienteQuarto> cliquart = new ArrayList<>();
+        List<Reserva> cliquart = new ArrayList<>();
 
         try {
             // Inserindo o comando SQL a ser usado
-            stmt = con.prepareStatement("SELECT * FROM clientequarto");
+            stmt = con.prepareStatement("SELECT * FROM reservas");
             rs = stmt.executeQuery(); // Executa o comando SQL
             /* Loop responsável pela busca dos dados no banco que o repetirá até que não
  haja valores */
             while (rs.next()) {
 
-                ClienteQuarto cliquar = new ClienteQuarto();
-                cliquar.setId(rs.getInt("id"));
-                cliquar.setIdcliente(rs.getInt("idcliente"));
-                cliquar.setIdquarto(rs.getInt("idquarto"));
-
+                Reserva cliquar = new Reserva();
+                cliquar.setId_cli(rs.getInt("idcli"));
+                cliquar.setId_func(rs.getInt("idfunc"));
+//                cliquar.setId_res(rs.getInt("quarto")); idReserva não tem no banco de dados
+                
                 cliquart.add(cliquar); // Adiciona o objeto na lista
             }
         } catch (SQLException ex) { // Tratamento das exceções
-            Logger.getLogger(ClienteQuartoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ReservaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cliquart;   // Retorna a lista
     }
@@ -72,7 +72,7 @@ public class ClienteQuartoDAO {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteQuartoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ReservaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return cliquar;
