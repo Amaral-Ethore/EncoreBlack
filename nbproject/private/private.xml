@@ -5,8 +5,11 @@
         <group>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/Conector/ModuloConexao.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaFuncionarios.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaCliente.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaPrincipal.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/FuncionarioDAO.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaFuncionario.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/models/Funcionario.java</file>
         </group>
     </open-files>
 </project-private>

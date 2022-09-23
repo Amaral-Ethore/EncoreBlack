@@ -169,8 +169,6 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel15.setText("Usúario");
 
-        txtUsuFunc.setEnabled(false);
-
         tabFunc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -215,7 +213,6 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel17.setText("Senha");
 
-        txtSenhaFunc.setEnabled(false);
         txtSenhaFunc.setRequestFocusEnabled(false);
 
         btnSalvar.setText("Salvar");
@@ -489,7 +486,9 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         txtSalFunc.setText(Double.toString(func.getSalario()));
         txtSetFunc.setText(func.getSetor());
         txtFunFunc.setText(func.getFuncao());
-
+        
+        txtUsuFunc.setEnabled(false);
+        txtSenhaFunc.setEnabled(false);
 
     }//GEN-LAST:event_tabFuncMouseClicked
 
@@ -531,6 +530,7 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         try {
             nome.Insert(funcionarios);
             JOptionPane.showMessageDialog(null, "Criado com sucesso");
+            limparformulario();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao criar");
             System.out.println(e.getMessage());
@@ -542,10 +542,32 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         try {
             nome.Update(funcionarios);
             JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+            limparformulario();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao editar");
             System.out.println(e.getMessage());
         }
+
+    }
+
+    private void limparformulario() {
+        txtRgFunc.setText("");
+        txtCpfFunc.setText("");
+        txtTeleFunc.setText("");
+        txtEmailFunc.setText("");
+        txtEndFunc.setText("");
+        txtSalFunc.setText("");
+        txtSetFunc.setText("");
+        txtFunFunc.setText("");
+        txtIdFunc.setText("");
+        txtCarHor.setText("");
+        txtNomeFunc.setText("");
+        txtSexoFunc.setText("");
+        txtNascFunc.setText("");
+        
+        
+        txtUsuFunc.setEnabled(true);
+        txtSenhaFunc.setEnabled(true);
     }
 
     /**
