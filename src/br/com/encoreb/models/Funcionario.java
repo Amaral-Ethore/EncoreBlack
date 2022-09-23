@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.encorebe.models;
+package br.com.encoreb.models;
 
 import java.util.Date;
 
@@ -18,8 +18,31 @@ public class Funcionario extends Pessoa {
     private String funcao;
     private String cargahoraria;
     private String setor;
+<<<<<<< HEAD:src/br/com/encorebe/models/Funcionario.java
     private String senha;
     private String login;
+=======
+    private String usuario;
+    private String senha;
+    
+
+    public Funcionario(){
+        
+    }
+    
+    public Funcionario( double salario,String funcao,String cargahoraria,String nome, String sexo, String rg,String cpf, String telefone,String email, String endereco, Date nascimento){
+       
+        super (nome,sexo, rg,cpf,telefone,email, endereco, nascimento);        
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+>>>>>>> fc93df99b9cb303a26beb9f7f6c4faabaf4d5cf1:src/br/com/encoreb/models/Funcionario.java
 
     public String getSenha() {
         return senha;
@@ -28,6 +51,7 @@ public class Funcionario extends Pessoa {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+<<<<<<< HEAD:src/br/com/encorebe/models/Funcionario.java
 
     public String getLogin() {
         return login;
@@ -36,6 +60,8 @@ public class Funcionario extends Pessoa {
     public void setLogin(String login) {
         this.login = login;
     }
+=======
+>>>>>>> fc93df99b9cb303a26beb9f7f6c4faabaf4d5cf1:src/br/com/encoreb/models/Funcionario.java
 
     public String getSetor() {
         return setor;
@@ -45,15 +71,6 @@ public class Funcionario extends Pessoa {
         this.setor = setor;
     }
     
-    public Funcionario(){
-        
-    }
-    public Funcionario( double salario,String funcao,String cargahoraria,String nome, String sexo, String rg,String cpf, String telefone,String email, String endereco, Date nascimento){
-       
-        super (nome,sexo, rg,cpf,telefone,email, endereco, nascimento);
-        
-    }
-
     @Override
     public int getId() {
         return id;

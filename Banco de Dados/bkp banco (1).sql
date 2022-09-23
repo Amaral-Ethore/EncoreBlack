@@ -93,9 +93,10 @@ CREATE TABLE `funcionarios` (
   `funcao` varchar(50) NOT NULL,
   `setor` varchar(50) NOT NULL,
   `cargaHoraria` varchar(10) DEFAULT NULL,
-  `usuario` varchar(100) DEFAULT NULL,
+  `usuario` varchar(100) NOT NULL,
   `senha` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `usuario` (`usuario`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -105,7 +106,7 @@ CREATE TABLE `funcionarios` (
 
 LOCK TABLES `funcionarios` WRITE;
 /*!40000 ALTER TABLE `funcionarios` DISABLE KEYS */;
-INSERT INTO `funcionarios` VALUES (1,'Admin','M','1998-06-06','5662594618','65826724589','55992151302','admin.admineb@gmail.com','Rua Treze de Maio 2056',12000,'Admin','Administração','8 as 18','admin','admin');
+INSERT INTO `funcionarios` VALUES (1,'Admin','M','1998-06-06','5662594618','65826724589','55992151302','admin.admineb@gmail.com','Rua Treze de Maio 2056',12000,'Administrador','Administração','8 as 18','admin','admin');
 /*!40000 ALTER TABLE `funcionarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,4 +177,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-09 21:41:06
+-- Dump completed on 2022-09-16 21:47:44
