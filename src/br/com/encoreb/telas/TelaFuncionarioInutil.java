@@ -11,12 +11,12 @@ import br.com.encoreb.models.Funcionario;
  *
  * @author Assistência02
  */
-public class TelaFuncionario extends javax.swing.JInternalFrame {
+public class TelaFuncionarioInutil extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaFuncionario
      */
     
-    public TelaFuncionario() {
+    public TelaFuncionarioInutil() {
         initComponents();
     }
     

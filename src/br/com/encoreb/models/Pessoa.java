@@ -4,7 +4,7 @@
  */
 package br.com.encoreb.models;
 
-import java.sql.Date;
+import java.util.Date;
 import java.time.LocalDateTime;
 
 /**

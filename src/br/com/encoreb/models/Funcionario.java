@@ -4,7 +4,9 @@
  */
 package br.com.encoreb.models;
 
-import java.sql.Date;
+import java.util.Date;
+
+
 
 /**
  *
@@ -16,8 +18,9 @@ public class Funcionario extends Pessoa {
     private String funcao;
     private String cargahoraria;
     private String setor;
-    private String usuario;
     private String senha;
+    private String login;
+    private String usuario;
     
 
     public Funcionario(){
@@ -43,6 +46,14 @@ public class Funcionario extends Pessoa {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getSetor() {

@@ -8,12 +8,14 @@ import Conector.ModuloConexao;
 import br.com.encoreb.dao.ClienteDAO;
 import br.com.encoreb.models.Cliente;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
+import sun.misc.FormattedFloatingDecimal;
 
 /**
  *
@@ -188,8 +190,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         btnEditar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
-        txtCliCpf = new javax.swing.JFormattedTextField();
-        txtCliTel = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -210,6 +210,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         txtCliRg = new javax.swing.JTextField();
         txtCliEma = new javax.swing.JTextField();
         txtCliEnd = new javax.swing.JTextField();
+        txtCliCpf = new javax.swing.JTextField();
+        txtCliTel = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -263,18 +265,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(tblClientes);
-
-        try {
-            txtCliCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            txtCliTel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
 
         jLabel1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         jLabel1.setText("ID:");
@@ -437,16 +427,35 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         Cliente cli = new Cliente();
         ClienteDAO cd = new ClienteDAO();
         
+        cli.setId(Integer.parseInt(txtCliId.getText()));
         cli.setNome(txtCliNome.getText());
         cli.setSexo(txtCliSexo.getText());
-        cli.setNascimento(txtCliNas.getTime());
+        
+        
+       SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date d = (Date) formatter.parse(txtCliNas.getText());
+            cli.setNascimento(d);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
         cli.setRg(txtCliRg.getText());
         cli.setCpf(txtCliCpf.getText());
         cli.setTelefone(txtCliTel.getText());
         cli.setEmail(txtCliEma.getText());
         cli.setEndereco(txtCliEnd.getText());
         
-        cd.Insert(cli);
+        try {
+            cd.Insert(cli);
+            JOptionPane.showMessageDialog(null, "Criado com sucesso");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao criar");
+            System.out.println(e.getMessage());
+        }
         
         
     }//GEN-LAST:event_btnAdicionarActionPerformed
@@ -510,7 +519,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblClientes;
-    private javax.swing.JFormattedTextField txtCliCpf;
+    private javax.swing.JTextField txtCliCpf;
     private javax.swing.JTextField txtCliEma;
     private javax.swing.JTextField txtCliEnd;
     private javax.swing.JTextField txtCliId;
@@ -518,6 +527,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCliNome;
     private javax.swing.JTextField txtCliRg;
     private javax.swing.JTextField txtCliSexo;
-    private javax.swing.JFormattedTextField txtCliTel;
+    private javax.swing.JTextField txtCliTel;
     // End of variables declaration//GEN-END:variables
 }

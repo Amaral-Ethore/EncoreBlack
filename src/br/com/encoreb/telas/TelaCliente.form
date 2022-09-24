@@ -46,7 +46,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="txtCliNome" alignment="0" pref="231" max="32767" attributes="0"/>
                                       <Component id="txtCliId" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                                       <Component id="txtCliNas" alignment="0" pref="231" max="32767" attributes="0"/>
@@ -224,20 +224,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JFormattedTextField" name="txtCliCpf">
-      <Properties>
-        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-          <Format format="###.###.###-##" subtype="-1" type="5"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="txtCliTel">
-      <Properties>
-        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-          <Format format="(##) # ####-####" subtype="-1" type="5"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -369,6 +355,10 @@
     <Component class="javax.swing.JTextField" name="txtCliEma">
     </Component>
     <Component class="javax.swing.JTextField" name="txtCliEnd">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCliCpf">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCliTel">
     </Component>
   </SubComponents>
 </Form>
