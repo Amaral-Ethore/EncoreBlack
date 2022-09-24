@@ -79,7 +79,6 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         txtEmailFunc = new javax.swing.JTextField();
         txtEndFunc = new javax.swing.JTextField();
         txtSalFunc = new javax.swing.JTextField();
-        txtFunFunc = new javax.swing.JTextField();
         txtSetFunc = new javax.swing.JTextField();
         txtCarHor = new javax.swing.JTextField();
         txtUsuFunc = new javax.swing.JTextField();
@@ -91,6 +90,7 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         txtSenhaFunc = new javax.swing.JPasswordField();
         btnSalvar = new javax.swing.JButton();
+        comboFuncao = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -169,8 +169,6 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel15.setText("Usúario");
 
-        txtUsuFunc.setEnabled(false);
-
         tabFunc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -215,7 +213,6 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel17.setText("Senha");
 
-        txtSenhaFunc.setEnabled(false);
         txtSenhaFunc.setRequestFocusEnabled(false);
 
         btnSalvar.setText("Salvar");
@@ -224,6 +221,8 @@ public class TelaFuncionarios extends javax.swing.JFrame {
                 btnSalvarActionPerformed(evt);
             }
         });
+
+        comboFuncao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Gerente", "Funcionario", " " }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -263,7 +262,6 @@ public class TelaFuncionarios extends javax.swing.JFrame {
                             .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFunFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEndFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCpfFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEmailFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,7 +271,8 @@ public class TelaFuncionarios extends javax.swing.JFrame {
                                 .addGap(215, 215, 215)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSexoFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtSexoFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 47, Short.MAX_VALUE)
@@ -361,8 +360,8 @@ public class TelaFuncionarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSetFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
-                    .addComponent(txtFunFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
+                    .addComponent(jLabel12)
+                    .addComponent(comboFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
@@ -449,7 +448,7 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         funcionarios.setEmail(txtEmailFunc.getText());
         funcionarios.setEndereco(txtEndFunc.getText());
         funcionarios.setSalario(Double.parseDouble(txtSalFunc.getText()));
-        funcionarios.setFuncao(txtFunFunc.getText());
+        funcionarios.setFuncao(comboFuncao.getSelectedItem().toString());
         funcionarios.setSetor(txtSetFunc.getText());
         funcionarios.setCargahoraria(txtCarHor.getText());
         funcionarios.setLogin(txtUsuFunc.getText());
@@ -488,8 +487,10 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         txtEndFunc.setText(func.getEndereco());
         txtSalFunc.setText(Double.toString(func.getSalario()));
         txtSetFunc.setText(func.getSetor());
-        txtFunFunc.setText(func.getFuncao());
-
+        comboFuncao.setSelectedItem(func.getFuncao());
+        
+        txtUsuFunc.setEnabled(false);
+        txtSenhaFunc.setEnabled(false);
 
     }//GEN-LAST:event_tabFuncMouseClicked
 
@@ -513,7 +514,7 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         funcionarios.setEmail(txtEmailFunc.getText());
         funcionarios.setEndereco(txtEndFunc.getText());
         funcionarios.setSalario(Double.parseDouble(txtSalFunc.getText()));
-        funcionarios.setFuncao(txtFunFunc.getText());
+        funcionarios.setFuncao(comboFuncao.getSelectedItem().toString());
         funcionarios.setSetor(txtSetFunc.getText());
         funcionarios.setCargahoraria(txtCarHor.getText());
         funcionarios.setLogin(txtUsuFunc.getText());
@@ -531,6 +532,7 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         try {
             nome.Insert(funcionarios);
             JOptionPane.showMessageDialog(null, "Criado com sucesso");
+            limparformulario();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao criar");
             System.out.println(e.getMessage());
@@ -542,10 +544,32 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         try {
             nome.Update(funcionarios);
             JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+            limparformulario();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao editar");
             System.out.println(e.getMessage());
         }
+
+    }
+
+    private void limparformulario() {
+        txtRgFunc.setText("");
+        txtCpfFunc.setText("");
+        txtTeleFunc.setText("");
+        txtEmailFunc.setText("");
+        txtEndFunc.setText("");
+        txtSalFunc.setText("");
+        txtSetFunc.setText("");
+      
+        txtIdFunc.setText("");
+        txtCarHor.setText("");
+        txtNomeFunc.setText("");
+        txtSexoFunc.setText("");
+        txtNascFunc.setText("");
+        
+        
+        txtUsuFunc.setEnabled(true);
+        txtSenhaFunc.setEnabled(true);
     }
 
     /**
@@ -588,6 +612,7 @@ public class TelaFuncionarios extends javax.swing.JFrame {
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel codigo;
+    private javax.swing.JComboBox<String> comboFuncao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -610,7 +635,6 @@ public class TelaFuncionarios extends javax.swing.JFrame {
     private javax.swing.JTextField txtCpfFunc;
     private javax.swing.JTextField txtEmailFunc;
     private javax.swing.JTextField txtEndFunc;
-    private javax.swing.JTextField txtFunFunc;
     private javax.swing.JTextField txtIdFunc;
     private javax.swing.JTextField txtNascFunc;
     private javax.swing.JTextField txtNomeFunc;

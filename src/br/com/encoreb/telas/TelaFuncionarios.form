@@ -64,7 +64,6 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtFunFunc" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
                           <Component id="txtEndFunc" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
                           <Component id="txtCpfFunc" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                           <Component id="txtEmailFunc" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
@@ -76,6 +75,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txtSexoFunc" min="-2" pref="102" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="comboFuncao" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -188,8 +188,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtSetFunc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFunFunc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboFuncao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -382,16 +382,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtSalFunc">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtFunFunc">
-    </Component>
     <Component class="javax.swing.JTextField" name="txtSetFunc">
     </Component>
     <Component class="javax.swing.JTextField" name="txtCarHor">
     </Component>
     <Component class="javax.swing.JTextField" name="txtUsuFunc">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -472,7 +467,6 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtSenhaFunc">
       <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
         <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -483,6 +477,21 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboFuncao">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Admin"/>
+            <StringItem index="1" value="Gerente"/>
+            <StringItem index="2" value="Funcionario"/>
+            <StringItem index="3" value=" "/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

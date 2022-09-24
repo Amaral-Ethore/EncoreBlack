@@ -13,7 +13,17 @@
 =======
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/ReservaDAO.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/models/Reserva.java</file>
+<<<<<<< HEAD
 >>>>>>> 7931a3cb25a9ae88ac68543c0870262a3e07ee52
+=======
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/Conector/ModuloConexao.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaFuncionarios.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaCliente.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaPrincipal.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/FuncionarioDAO.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaFuncionario.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/models/Funcionario.java</file>
+>>>>>>> c1fb4e22b034d4a2c0814d06d2b81c47b7ace0c6
         </group>
 >>>>>>> 77113f367cc5bcbb58aa745e85865cecf0a2535a
     </open-files>
