@@ -74,7 +74,7 @@ public class FuncionarioDAO {
             stmt.setInt(1, id);
 
             rs = stmt.executeQuery();
-
+ 
             while (rs.next()) {
                 funcionario.setId(rs.getInt("id"));
                 funcionario.setNome(rs.getString("nome"));
@@ -92,7 +92,7 @@ public class FuncionarioDAO {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return funcionario;
