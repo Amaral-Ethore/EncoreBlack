@@ -42,7 +42,7 @@ Connection conexao = null;
     
     public void TelaFunc()
     {
-        TelaFuncionarios func = new TelaFuncionarios();
+        Telafuncionarios02 func = new Telafuncionarios02();
         func.setVisible(true);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         Desktop.add(func);        
