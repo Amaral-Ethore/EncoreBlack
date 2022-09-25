@@ -127,6 +127,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblClientesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblClientes);
 
         jLabel1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -333,6 +338,19 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
+    private void editar(Cliente cliente) {
+        ClienteDAO nome = new ClienteDAO();
+        try {
+            nome.Update(cliente);
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+            limparformulario();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao editar");
+            System.out.println(e.getMessage());
+        }
+
+    }
+    
     private void limparformulario() {
         txtCliNome.setText("");
         txtCliSexo.setText("");
@@ -352,6 +370,32 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
 //        pesquisar();
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
+        // TODO add your handling code here:
+        int row = tblClientes.getSelectedRow();
+        Cliente cli = new Cliente();
+        ClienteDAO dao = new ClienteDAO();
+        try {
+            cli = dao.SelectOne(cli.get(row).getId());
+            txtCliId.setText(Integer.toString(cli.getId()));
+            txtCliNome.setText(cli.getNome());
+            txtCliSexo.setText(cli.getSexo());
+            
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date databanco = formatter.parse(cli.getNascimento().toString());
+            String dataformatada = new SimpleDateFormat("dd/MM/yyyy").format(databanco);
+            txtCliNas.setText(dataformatada);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        txtCliRg.setText(cli.getRg());
+        txtCliCpf.setText(cli.getCpf());
+        txtCliTel.setText(cli.getTelefone());
+        txtCliEma.setText(cli.getEmail());
+        txtCliEnd.setText(cli.getEndereco());
+    }//GEN-LAST:event_tblClientesMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
