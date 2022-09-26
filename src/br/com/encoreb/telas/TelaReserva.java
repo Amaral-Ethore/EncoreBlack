@@ -244,8 +244,7 @@ public class TelaReserva extends javax.swing.JFrame {
                 .addGap(29, 29, 29))
                     .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addContainerGap(7, Short.MAX_VALUE))
-        );
+                .addContainerGap(7, Short.MAX_VALUE)));
 
         pack();
         setLocationRelativeTo(null);
