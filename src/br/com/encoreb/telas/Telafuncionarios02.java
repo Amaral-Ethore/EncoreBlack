@@ -187,6 +187,8 @@ public class Telafuncionarios02 extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabFunc.getTableHeader().setResizingAllowed(false);
+        tabFunc.getTableHeader().setReorderingAllowed(false);
         tabFunc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabFuncMouseClicked(evt);
