@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import br.com.encoreb.models.Cliente;
+import br.com.encoreb.models.Funcionario;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,7 +50,6 @@ public class ClienteDAO {
                 cliente.setTelefone(rs.getString("telefone"));
                 cliente.setEmail(rs.getString("email"));
                 cliente.setEndereco(rs.getString("endereco"));
-                cliente.setAcompanhante(rs.getString("acompanhante"));
                 
                 clientes.add(cliente); // Adiciona o objeto na lista
             }
@@ -82,7 +82,6 @@ public class ClienteDAO {
                 cliente.setTelefone(rs.getString("telefone"));
                 cliente.setEmail(rs.getString("email"));
                 cliente.setEndereco(rs.getString("endereco"));
-                cliente.setAcompanhante(rs.getString("acompanhante"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -104,15 +103,15 @@ public class ClienteDAO {
             stmt = con.prepareStatement("INSERT INTO clientes VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             // O método setString, define que o valor passado será do tipo inteiro
-            stmt.setInt(1, c.getId());
-            stmt.setString(2, c.getNome());
-            stmt.setString(3, c.getSexo());
-            stmt.setDate(4, new Date(c.getNascimento().getTime()));
-            stmt.setString(5, c.getRg());
-            stmt.setString(6, c.getCpf());
-            stmt.setString(7, c.getTelefone());
-            stmt.setString(8, c.getEmail());
-            stmt.setString(9, c.getEndereco());
+           
+            stmt.setString(1, c.getNome());
+            stmt.setString(2, c.getSexo());
+            stmt.setDate(3, new Date(c.getNascimento().getTime()));
+            stmt.setString(4, c.getRg());
+            stmt.setString(5, c.getCpf());
+            stmt.setString(6, c.getTelefone());
+            stmt.setString(7, c.getEmail());
+            stmt.setString(8, c.getEndereco());
             
             
 
@@ -142,7 +141,7 @@ public class ClienteDAO {
         con.setAutoCommit(false);
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("UPDATE clientes SET nome = ?, sexo = ?, nascimento = ?, RG = ?, CPF = ?, telefone = ?, email = ?, endereco = ?, acompanhante = ? WHERE id = ?");
+            stmt = con.prepareStatement("UPDATE clientes SET nome = ?, sexo = ?, nascimento = ?, RG = ?, CPF = ?, telefone = ?, email = ?, endereco = ? WHERE id = ?");
             
             stmt.setInt(1, cliente.getId());
             stmt.setString(2, cliente.getNome());
@@ -153,7 +152,6 @@ public class ClienteDAO {
             stmt.setString(7, cliente.getTelefone());
             stmt.setString(8, cliente.getEmail());
             stmt.setString(9, cliente.getEndereco());
-            stmt.setString(10, cliente.getAcompanhante());
             
             stmt.executeUpdate();
             con.commit();
@@ -169,5 +167,49 @@ public class ClienteDAO {
             }
             con.setAutoCommit(true);
         }
+    }
+    
+     public List<Cliente> pesquisar(String termo) throws SQLException, ClassNotFoundException {
+        Connection con = ModuloConexao.getConnection();
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Cliente> clientes = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("select * from  clientes where nome like ?");
+            stmt.setString(1, "%"+ termo + "%");
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Cliente cli = new Cliente();
+                cli.setId(rs.getInt("id"));
+                cli.setNome(rs.getString("nome"));
+                cli.setSexo(rs.getString("sexo"));
+                cli.setNascimento(rs.getDate("nascimento"));
+                cli.setRg(rs.getString("RG"));
+                cli.setCpf(rs.getString("CPF"));
+                cli.setTelefone(rs.getString("telefone"));
+                cli.setEmail(rs.getString("email"));
+                cli.setEndereco(rs.getString("endereco"));
+
+                clientes.add(cli);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+
+            throw ex;
+
+        } finally {
+
+            if (stmt != null) {
+                stmt.close();
+            }
+            con.setAutoCommit(true);
+        }
+
+        return clientes;
+
     }
 }
