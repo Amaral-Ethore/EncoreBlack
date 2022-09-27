@@ -6,16 +6,13 @@ package br.com.encoreb.telas;
 
 import Conector.ModuloConexao;
 import br.com.encoreb.dao.ClienteDAO;
-import br.com.encoreb.dao.FuncionarioDAO;
 import br.com.encoreb.models.Cliente;
-import br.com.encoreb.models.Funcionario;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -35,8 +32,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     List<Cliente> Cliente = new ArrayList<>();
 
     private DefaultTableModel modelo = new DefaultTableModel();
-    List<Cliente> Clientes = new ArrayList();
-    Vector v = new Vector();
 
     public TelaCliente() {
         initComponents();
@@ -389,7 +384,27 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     }
     
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-//        alterar();
+        Cliente cli = new Cliente();
+        
+        cli.setNome(txtCliNome.getText());
+        cli.setSexo(txtCliSexo.getText());
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date d = (Date) formatter.parse(txtCliNas.getText());
+            cli.setNascimento(d);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        cli.setRg(txtCliRg.getText());
+        cli.setCpf(txtCliCpf.getText());
+        cli.setTelefone(txtCliTel.getText());
+        cli.setEmail(txtCliEma.getText());
+        cli.setEndereco(txtCliEnd.getText());
+        
+        
+        editar(cli);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed

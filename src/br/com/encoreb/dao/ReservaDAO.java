@@ -29,8 +29,8 @@ public class ReservaDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null; // Objeto que armazena o resultado de uma busca em uma estrutura de dados que pode ser percorrida
 // Instanciando uma nova lista para receber os valores do banco
-        List<Reserva> cliquart = new ArrayList<>();
-
+        List<Reserva> reslist = new ArrayList<>();
+        Reserva res = new Reserva();
         try {
             // Inserindo o comando SQL a ser usado
             stmt = con.prepareStatement("SELECT * FROM reservas");
@@ -39,62 +39,80 @@ public class ReservaDAO {
  haja valores */
             while (rs.next()) {
 
-                Reserva cliquar = new Reserva();
-                cliquar.setId_cli(rs.getInt("idcli"));
-                cliquar.setId_func(rs.getInt("idfunc"));
-//                cliquar.setId_res(rs.getInt("quarto")); idReserva não tem no banco de dados
-                
-                cliquart.add(cliquar); // Adiciona o objeto na lista
+                res.setId_res(rs.getInt("id_res"));
+                res.setId_cli(rs.getInt("id_cli"));
+                res.setId_func(rs.getInt("id_func"));
+                res.setData_entrada(rs.getDate("data_entrada"));
+                res.setData_saida(rs.getDate("data_saida"));
+                res.setAdultos(rs.getInt("adultos"));
+                res.setCriancas(rs.getInt("criancas"));
+                res.setQuarto(rs.getInt("quarto"));
+                res.setValor(rs.getDouble("valor"));
+                                
+                reslist.add(res); // Adiciona o objeto na lista
             }
         } catch (SQLException ex) { // Tratamento das exceções
             Logger.getLogger(ReservaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return cliquart;   // Retorna a lista
+        return reslist;   // Retorna a lista
     }
 
-    public ClienteQuarto SelectOne(int id) throws SQLException, ClassNotFoundException {
+    public Reserva SelectOne(int id) throws SQLException, ClassNotFoundException {
         Connection con = ModuloConexao.getConnection();
 
         PreparedStatement stmt = null;
 
         ResultSet rs = null;
-        ClienteQuarto cliquar = new ClienteQuarto();
+        Reserva res = new Reserva();
         try {
-            stmt = con.prepareStatement("SELECT * FROM clientequarto AS c WHERE c.idclienteQuarto = ?");
+            stmt = con.prepareStatement("SELECT * FROM reserva AS c WHERE c.id_res = ?");
             stmt.setInt(1, id);
 
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                cliquar.setId(rs.getInt("idclienteQuarto"));
-                cliquar.setIdcliente(rs.getInt("idcliente"));
-                cliquar.setIdquarto(rs.getInt("idquarto"));
-
+                res.setId_res(rs.getInt("id_res"));
+                res.setId_cli(rs.getInt("id_cli"));
+                res.setId_func(rs.getInt("id_func"));
+                res.setData_entrada(rs.getDate("data_entrada"));
+                res.setData_saida(rs.getDate("data_saida"));
+                res.setAdultos(rs.getInt("adultos"));
+                res.setCriancas(rs.getInt("criancas"));
+                res.setQuarto(rs.getInt("quarto"));
+                res.setValor(rs.getDouble("valor"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ReservaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return cliquar;
+        return res;
     }
 
-    public void Insert(ClienteQuarto cq) throws SQLException, ClassNotFoundException {
+    public void Insert(Reserva res) throws SQLException, ClassNotFoundException {
 
         Connection con = ModuloConexao.getConnection(); // Busca uma conexão com o banco de dados
 
         con.setAutoCommit(false);
 
         PreparedStatement stmt = null;
+        
+
 
         try {
 
             // Inserindo o comando SQL a ser usado
-            stmt = con.prepareStatement("INSERT INTO clientequarto VALUES (DEFAULT, ?, ?)");
+            stmt = con.prepareStatement("INSERT INTO clientequarto VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             // O método setString, define que o valor passado será do tipo inteiro
-            stmt.setInt(1, cq.getIdcliente());
-            stmt.setInt(2, cq.getIdquarto());
-
+            stmt.setInt(1, res.getId_res());
+            stmt.setInt(2, res.getId_cli());
+            stmt.setInt(3, res.getId_func());
+            stmt.setDate(4, new Date(res.getData_entrada().getTime()));             
+            stmt.setDate(5, new Date(res.getData_entrada().getTime()));
+            stmt.setInt(6, res.getAdultos());
+            stmt.setInt(7, res.getCriancas());
+            stmt.setInt(8, res.getQuarto());
+            stmt.setDouble(9, res.getValor());
             // Método responsável por fazer a alteração no banco de dados
             stmt.executeUpdate();
             con.commit();
@@ -114,15 +132,21 @@ public class ReservaDAO {
         }
     }
 
-    public void Update(ClienteQuarto cliquar) throws SQLException, ClassNotFoundException {
+    public void Update(Reserva res) throws SQLException, ClassNotFoundException {
         Connection con = ModuloConexao.getConnection();
         con.setAutoCommit(false);
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("UPDATE clientequarto SET idcliente = ?, idquarto= ? WHERE idclienteQuarto = ?");
-            stmt.setInt(1, cliquar.getId());
-            stmt.setInt(2, cliquar.getIdcliente());
-            stmt.setInt(3, cliquar.getIdquarto());
+            stmt = con.prepareStatement("UPDATE clientequarto SET id_res = ?, id_cli= ?, id_fubc = ?, data_entrada = ?, data_saida = ?, adultos = ?, criancas = ?, quarto = ?, valor = ?  WHERE idclienteQuarto = ?");
+            stmt.setInt(1, res.getId_res());
+            stmt.setInt(2, res.getId_cli());
+            stmt.setInt(3, res.getId_func());
+            stmt.setDate(4, new Date(res.getData_entrada().getTime()));  
+            stmt.setDate(5, new Date(res.getData_entrada().getTime()));
+            stmt.setInt(6, res.getAdultos());
+            stmt.setInt(7, res.getCriancas());
+            stmt.setInt(8, res.getQuarto());
+            stmt.setDouble(9, res.getValor());
             stmt.executeUpdate();
             con.commit();
         } catch (SQLException ex) {
