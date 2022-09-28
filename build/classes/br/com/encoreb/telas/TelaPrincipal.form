@@ -206,7 +206,7 @@
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace pref="11" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -217,11 +217,11 @@
               <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="lblData" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="189" max="32767" attributes="0"/>
+              <EmptySpace pref="195" max="32767" attributes="0"/>
               <Component id="jLabel4" min="-2" pref="246" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
           </Group>
-          <Component id="Desktop" alignment="1" pref="745" max="32767" attributes="0"/>
+          <Component id="Desktop" alignment="1" pref="751" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -268,7 +268,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br/com/encoreb/icones/nao-perturbe256.png"/>
+          <Image iconType="3" name="/br/com/encoreb/icones/Encore Black LOGO 104.png"/>
         </Property>
       </Properties>
     </Component>
