@@ -20,13 +20,23 @@ public class Reserva {
     private int criancas;
     private int quarto;
     private Double valor;
-
+    private String Responsavel;
     public Reserva(int id_func, int id_cli, Date data_entrada, Date data_saida, int adultos, int criancas, int quarto, Double valor){
         
     }
     public Reserva(){
         
     }
+
+    public String getResponsavel() {
+        return Responsavel;
+    }
+
+    public void setResponsavel(String Responsavel) {
+        this.Responsavel = Responsavel;
+    }
+    
+    
     public int getId_res() {
         return id_res;
     }

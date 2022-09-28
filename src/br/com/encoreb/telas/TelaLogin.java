@@ -37,18 +37,22 @@ public class TelaLogin extends javax.swing.JFrame {
                     case "Admin":
                         tela.setVisible(true);
                         tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        this.dispose();
                         break;
                     case "Gerente":
                        tela.setVisible(true);
-                       tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                        break;
+                       tela.setExtendedState(JFrame.MAXIMIZED_BOTH);                       
+                       this.dispose();
+                       break;
                     case "Funcionario":
                         tela.setVisible(true);
                         tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        this.dispose();
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Função Invalida.");
                 }
+                    
             }
             else
             {
