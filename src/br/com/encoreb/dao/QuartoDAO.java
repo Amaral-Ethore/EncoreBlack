@@ -168,7 +168,7 @@ public class QuartoDAO {
             stmt.setString(1, quarto.getTipoQuarto());
             stmt.setBoolean(2, quarto.getOcupado());
             stmt.executeUpdate();
-            limparformulario();
+            
             conexao.commit();
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -187,9 +187,7 @@ public class QuartoDAO {
         
     }
 
-    private void limparformulario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }
 
 

@@ -6,11 +6,8 @@ package br.com.encoreb.telas;
 
 import Conector.ModuloConexao;
 import java.sql.*;
-import br.com.encoreb.dao.ClienteDAO;
-import br.com.encoreb.dao.FuncionarioDAO;
 import br.com.encoreb.dao.LoginDAO;
 import br.com.encoreb.models.Funcionario;
-import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -40,18 +37,22 @@ public class TelaLogin extends javax.swing.JFrame {
                     case "Admin":
                         tela.setVisible(true);
                         tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        this.dispose();
                         break;
                     case "Gerente":
                        tela.setVisible(true);
-                       tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                        break;
+                       tela.setExtendedState(JFrame.MAXIMIZED_BOTH);                       
+                       this.dispose();
+                       break;
                     case "Funcionario":
                         tela.setVisible(true);
                         tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        this.dispose();
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Função Invalida.");
                 }
+                    
             }
             else
             {
