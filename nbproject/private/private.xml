@@ -5,6 +5,9 @@
         <group>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaFuncionarios.java</file>
             <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/telas/TelaQuarto.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/QuartoDAO.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/dao/FuncionarioDAO.java</file>
+            <file>file:/C:/Users/Aluno/Documents/NetBeansProjects/EncoreBlack/src/br/com/encoreb/models/Quarto.java</file>
         </group>
     </open-files>
 </project-private>

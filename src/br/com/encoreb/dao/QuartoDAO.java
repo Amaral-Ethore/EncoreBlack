@@ -22,6 +22,22 @@ public class QuartoDAO {
 
     private String numQuarto;
     private String tipoQuarto;
+
+    public String getNumQuarto() {
+        return numQuarto;
+    }
+
+    public void setNumQuarto(String numQuarto) {
+        this.numQuarto = numQuarto;
+    }
+
+    public String getTipoQuarto() {
+        return tipoQuarto;
+    }
+
+    public void setTipoQuarto(String tipoQuarto) {
+        this.tipoQuarto = tipoQuarto;
+    }
     
     public Quarto getquarto() throws SQLException, ClassNotFoundException {
     
@@ -39,10 +55,10 @@ public class QuartoDAO {
         
         
         while (rs.next()) {
-          quarto.getQuarto(rs.getString("quarto"));
-          quarto.getOcupado(rs.getString("ocupado"));
-          quarto.getTipoQuarto(rs.getString("tipoQuarto"));
-          quarto.getNumQuarto(rs.getString("numQuarto"));   
+          
+          quarto.setOcupado(rs.getBoolean("ocupado"));
+          quarto.setTipoQuarto(rs.getString("tipoQuarto"));
+          quarto.setNumquarto(rs.getString("numQuarto"));   
           
           
         }
@@ -55,7 +71,7 @@ public class QuartoDAO {
         return quarto;
     }
     
-    public Quarto SelectOne(int id) throws SQLException, ClassNotFoundException {
+    public Quarto SelectOne(String numquarto) throws SQLException, ClassNotFoundException {
         Connection conexao = ModuloConexao.getConnection();
         
         PreparedStatement stmt = null;
@@ -64,16 +80,15 @@ public class QuartoDAO {
         
         Quarto quarto = new Quarto();
         try {
-        stmt = conexao.prepareStatement("SELECT * FROM quarto AS c Where c.id = ?");
-        stmt.setInt(1, id);
+        stmt = conexao.prepareStatement("SELECT * FROM quartos AS c Where c.numQuarto = ?");
+        stmt.setString(1, numquarto);
         
         
         rs = stmt.executeQuery();
         
         while(rs.next()) {
-        quarto.setQuarto(rs.getInt("quarto"));
+        quarto.setNumquarto(rs.getString("numQuarto"));
         quarto.setTipoQuarto(rs.getString("tipoQuarto"));
-        quarto.setAndar(rs.getInt("Andar"));
         quarto.setOcupado(rs.getBoolean("ocupado"));
        
         }
@@ -92,12 +107,11 @@ public class QuartoDAO {
         PreparedStatement stmt = null;
         try {
            
-            stmt = conexao.prepareStatement("INSERT INTO quartos VALUES (DEFAULT, ?,?,?,? )");
+            stmt = conexao.prepareStatement("INSERT INTO quartos VALUES ( ?,?,? )");
             
-            stmt.setString(1, quarto.getTipoQuarto());
-            stmt.setInt(2, quarto.getAndar());
+            stmt.setString(1, quarto.getNumquarto());
+            stmt.setString(2, quarto.getTipoQuarto());
             stmt.setBoolean(3, quarto.getOcupado());
-            stmt.setInt(4, quarto.getQuarto());
             
             stmt.executeUpdate();
             conexao.commit();
@@ -114,11 +128,34 @@ public class QuartoDAO {
         
     }
     }
-    
-    
-    
-    
-    
+     public List<Quarto> Pesquisar(String quarto) throws SQLException, ClassNotFoundException {
+          Connection conexao = ModuloConexao.getConnection();
+          
+          ResultSet rs = null;
+          PreparedStatement stmt = null;
+          List<Quarto> quartos = new ArrayList<>();
+          
+         try {
+             stmt = conexao.prepareStatement("select * from quartos where numQuarto like ?");
+             stmt.setString(1, "%"+ quarto + "%");
+             
+             rs = stmt.executeQuery();
+             
+             while (rs.next()) {
+                 Quarto Quarto = new Quarto();
+                 Quarto.setNumquarto(rs.getString("numQuarto"));
+                 Quarto.setTipoQuarto(rs.getString("tipoQuarto"));
+                 Quarto.setOcupado(rs.getBoolean("ocupado"));
+                 quartos.add(Quarto);
+                 
+             }
+         } catch (SQLException ex) {
+             System.out.println(ex);
+             throw ex;
+         }
+         return quartos;
+     
+     }
     
     public void Update(Quarto quarto) throws SQLException, ClassNotFoundException {
         Connection conexao = ModuloConexao.getConnection();
@@ -126,13 +163,18 @@ public class QuartoDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = conexao.prepareStatement("UPDATE funcionario SET tipoQuarto = ?, numQuarto = ?, ocupado = ?");
+            stmt = conexao.prepareStatement("UPDATE quartos SET tipoQuarto = ?, ocupado = ? WHERE numQuarto = ?");
+            stmt.setString(3, quarto.getNumquarto());
+            stmt.setString(1, quarto.getTipoQuarto());
+            stmt.setBoolean(2, quarto.getOcupado());
             stmt.executeUpdate();
+            limparformulario();
             conexao.commit();
         } catch (SQLException ex) {
             System.out.println(ex);
             conexao.rollback();
             throw ex;
+            
         } finally {
             
             if  (stmt != null) {
@@ -141,8 +183,12 @@ public class QuartoDAO {
             conexao.setAutoCommit(true);
         }
         
+       
         
-        
+    }
+
+    private void limparformulario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

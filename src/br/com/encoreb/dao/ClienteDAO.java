@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import br.com.encoreb.models.Cliente;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -93,7 +94,6 @@ public class ClienteDAO {
     public void Insert(Cliente c) throws SQLException, ClassNotFoundException {
 
         Connection con = ModuloConexao.getConnection(); // Busca uma conexão com o banco de dados
-
         con.setAutoCommit(false);
 
         PreparedStatement stmt = null;
@@ -101,7 +101,7 @@ public class ClienteDAO {
         try {
 
             // Inserindo o comando SQL a ser usado
-            stmt = con.prepareStatement("INSERT INTO clientes VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            stmt = con.prepareStatement("INSERT INTO clientes VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             // O método setString, define que o valor passado será do tipo inteiro
             stmt.setInt(1, c.getId());
@@ -113,7 +113,6 @@ public class ClienteDAO {
             stmt.setString(7, c.getTelefone());
             stmt.setString(8, c.getEmail());
             stmt.setString(9, c.getEndereco());
-            stmt.setString(10, c.getAcompanhante());
             
             
 
@@ -121,6 +120,8 @@ public class ClienteDAO {
             stmt.executeUpdate();
             con.commit();
 
+            JOptionPane.showMessageDialog(null, "Adicionado com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            
         } catch (SQLException ex) {  // Tratamento das exceções
 
             System.out.println(ex);

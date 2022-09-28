@@ -9,8 +9,7 @@ package br.com.encoreb.models;
  * @author Aluno
  */
 public class Quarto {
-    private int quarto;
-    private int andar;
+    private String numquarto;
     private String tipoQuarto;
     private Boolean ocupado;
 
@@ -20,20 +19,13 @@ public class Quarto {
     public Quarto(){
         
     }
-    public int getQuarto() {
-        return quarto;
+
+    public String getNumquarto() {
+        return numquarto;
     }
 
-    public void setQuarto(int quarto) {
-        this.quarto = quarto;
-    }
-
-    public int getAndar() {
-        return andar;
-    }
-
-    public void setAndar(int andar) {
-        this.andar = andar;
+    public void setNumquarto(String numquarto) {
+        this.numquarto = numquarto;
     }
 
     public String getTipoQuarto() {
@@ -51,26 +43,8 @@ public class Quarto {
     public void setOcupado(Boolean ocupado) {
         this.ocupado = ocupado;
     }
-
-    public void getAndar(String andar) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void getQuarto(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void getOcupado(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void getTipoQuarto(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void getNumQuarto(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+    
     
     
 }
