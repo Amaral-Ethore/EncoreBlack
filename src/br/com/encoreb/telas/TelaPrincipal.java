@@ -91,7 +91,6 @@ Connection conexao = null;
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1366, 768));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -117,7 +116,7 @@ Connection conexao = null;
         lblData.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblData.setText("Data");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/nao-perturbe256.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/Encore Black LOGO 104.png"))); // NOI18N
 
         menCad.setText("Cadastro");
 
@@ -144,6 +143,11 @@ Connection conexao = null;
         menCadRes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menCadRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/reserva (1).png"))); // NOI18N
         menCadRes.setText("Reserva");
+        menCadRes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menCadResActionPerformed(evt);
+            }
+        });
         menCad.add(menCadRes);
 
         menCadUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -218,7 +222,7 @@ Connection conexao = null;
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,10 +231,10 @@ Connection conexao = null;
                 .addComponent(lblUsuario)
                 .addGap(26, 26, 26)
                 .addComponent(lblData)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(170, 170, 170))
-            .addComponent(Desktop, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
+            .addComponent(Desktop, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
         );
 
         pack();
@@ -268,6 +272,12 @@ Connection conexao = null;
         TelaFunc();
 
     }//GEN-LAST:event_menCadFuncActionPerformed
+
+    private void menCadResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadResActionPerformed
+        TelaReserva telares = new TelaReserva();
+        telares.setVisible(true);
+        Desktop.add(telares);
+    }//GEN-LAST:event_menCadResActionPerformed
 
     /**
      * @param args the command line arguments
