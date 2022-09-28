@@ -48,7 +48,7 @@ public class ReservaDAO {
                 res.setCriancas(rs.getInt("criancas"));
                 res.setQuarto(rs.getInt("quarto"));
                 res.setValor(rs.getDouble("valor"));
-                                
+                res.setResponsavel(rs.getString("responsavel"));
                 reslist.add(res); // Adiciona o objeto na lista
             }
         } catch (SQLException ex) { // Tratamento das exceções
@@ -80,6 +80,7 @@ public class ReservaDAO {
                 res.setCriancas(rs.getInt("criancas"));
                 res.setQuarto(rs.getInt("quarto"));
                 res.setValor(rs.getDouble("valor"));
+                res.setResponsavel(rs.getString("responsavel"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ReservaDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -101,18 +102,18 @@ public class ReservaDAO {
         try {
 
             // Inserindo o comando SQL a ser usado
-            stmt = con.prepareStatement("INSERT INTO clientequarto VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)");
+            stmt = con.prepareStatement("INSERT INTO reservas VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             // O método setString, define que o valor passado será do tipo inteiro
-            stmt.setInt(1, res.getId_res());
-            stmt.setInt(2, res.getId_cli());
-            stmt.setInt(3, res.getId_func());
-            stmt.setDate(4, new Date(res.getData_entrada().getTime()));             
-            stmt.setDate(5, new Date(res.getData_entrada().getTime()));
-            stmt.setInt(6, res.getAdultos());
-            stmt.setInt(7, res.getCriancas());
-            stmt.setInt(8, res.getQuarto());
-            stmt.setDouble(9, res.getValor());
+            stmt.setInt(1, res.getId_cli());
+            stmt.setInt(2, res.getId_func());
+            stmt.setDate(3, new Date(res.getData_entrada().getTime()));             
+            stmt.setDate(4, new Date(res.getData_saida().getTime()));
+            stmt.setInt(5, res.getAdultos());
+            stmt.setInt(6, res.getCriancas());
+            stmt.setInt(7, res.getQuarto());
+            stmt.setDouble(8, res.getValor());
+            stmt.setString(9, res.getResponsavel());
             // Método responsável por fazer a alteração no banco de dados
             stmt.executeUpdate();
             con.commit();
@@ -137,16 +138,16 @@ public class ReservaDAO {
         con.setAutoCommit(false);
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("UPDATE clientequarto SET id_res = ?, id_cli= ?, id_fubc = ?, data_entrada = ?, data_saida = ?, adultos = ?, criancas = ?, quarto = ?, valor = ?  WHERE idclienteQuarto = ?");
-            stmt.setInt(1, res.getId_res());
-            stmt.setInt(2, res.getId_cli());
-            stmt.setInt(3, res.getId_func());
-            stmt.setDate(4, new Date(res.getData_entrada().getTime()));  
-            stmt.setDate(5, new Date(res.getData_entrada().getTime()));
-            stmt.setInt(6, res.getAdultos());
-            stmt.setInt(7, res.getCriancas());
-            stmt.setInt(8, res.getQuarto());
-            stmt.setDouble(9, res.getValor());
+            stmt = con.prepareStatement("UPDATE reservas SET id_cli= ?, id_fubc = ?, data_entrada = ?, data_saida = ?, adultos = ?, criancas = ?, quarto = ?, valor = ?, responsavel = ?  WHERE id_res = ?");
+            stmt.setInt(1, res.getId_cli());
+            stmt.setInt(2, res.getId_func());
+            stmt.setDate(3, new Date(res.getData_entrada().getTime()));  
+            stmt.setDate(4, new Date(res.getData_entrada().getTime()));
+            stmt.setInt(5, res.getAdultos());
+            stmt.setInt(6, res.getCriancas());
+            stmt.setInt(7, res.getQuarto());
+            stmt.setDouble(8, res.getValor());
+            stmt.setString(9, res.getResponsavel());
             stmt.executeUpdate();
             con.commit();
         } catch (SQLException ex) {
