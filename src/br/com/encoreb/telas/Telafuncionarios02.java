@@ -90,6 +90,10 @@ public class Telafuncionarios02 extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         txtSenhaFunc = new javax.swing.JPasswordField();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel10.setText("Endereço");
 
