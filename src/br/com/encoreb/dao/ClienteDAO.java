@@ -119,7 +119,7 @@ public class ClienteDAO {
             stmt.executeUpdate();
             con.commit();
 
-            JOptionPane.showMessageDialog(null, "Adicionado com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "Adicionado com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             
         } catch (SQLException ex) {  // Tratamento das exceções
 
@@ -143,15 +143,16 @@ public class ClienteDAO {
         try {
             stmt = con.prepareStatement("UPDATE clientes SET nome = ?, sexo = ?, nascimento = ?, RG = ?, CPF = ?, telefone = ?, email = ?, endereco = ? WHERE id = ?");
             
-            stmt.setInt(1, cliente.getId());
-            stmt.setString(2, cliente.getNome());
-            stmt.setString(3, cliente.getSexo());
-            stmt.setDate(4, new Date(cliente.getNascimento().getTime()));
-            stmt.setString(5, cliente.getRg());
-            stmt.setString(6, cliente.getCpf());
-            stmt.setString(7, cliente.getTelefone());
-            stmt.setString(8, cliente.getEmail());
-            stmt.setString(9, cliente.getEndereco());
+            
+            stmt.setString(1, cliente.getNome());
+            stmt.setString(2, cliente.getSexo());
+            stmt.setDate(3, new Date(cliente.getNascimento().getTime()));
+            stmt.setString(4, cliente.getRg());
+            stmt.setString(5, cliente.getCpf());
+            stmt.setString(6, cliente.getTelefone());
+            stmt.setString(7, cliente.getEmail());
+            stmt.setString(8, cliente.getEndereco());
+            stmt.setInt(9, cliente.getId());
             
             stmt.executeUpdate();
             con.commit();
