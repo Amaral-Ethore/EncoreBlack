@@ -91,7 +91,6 @@ Connection conexao = null;
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1366, 768));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -144,6 +143,11 @@ Connection conexao = null;
         menCadRes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menCadRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/reserva (1).png"))); // NOI18N
         menCadRes.setText("Reserva");
+        menCadRes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menCadResActionPerformed(evt);
+            }
+        });
         menCad.add(menCadRes);
 
         menCadUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -268,6 +272,12 @@ Connection conexao = null;
         TelaFunc();
 
     }//GEN-LAST:event_menCadFuncActionPerformed
+
+    private void menCadResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadResActionPerformed
+        TelaReserva telares = new TelaReserva();
+        telares.setVisible(true);
+        Desktop.add(telares);
+    }//GEN-LAST:event_menCadResActionPerformed
 
     /**
      * @param args the command line arguments
