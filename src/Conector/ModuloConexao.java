@@ -20,7 +20,7 @@ public class ModuloConexao {
 
     private static final String USER = "root";
 
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "root";
     public static Connection getConnection;
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {

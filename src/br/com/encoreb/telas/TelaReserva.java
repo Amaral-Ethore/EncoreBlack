@@ -106,6 +106,10 @@ public class TelaReserva extends javax.swing.JInternalFrame {
         txtResponsavel = new javax.swing.JTextField();
         limpador = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel1.setText("Reserva:");
 
         jLabel2.setText("Cliente:");

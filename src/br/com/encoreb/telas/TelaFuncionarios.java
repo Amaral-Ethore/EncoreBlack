@@ -41,7 +41,7 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         modelo.addColumn("Telefone");
 
         tabFunc.setModel(modelo);
-//        
+
     }
 
     /**

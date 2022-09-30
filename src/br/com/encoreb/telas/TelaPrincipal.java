@@ -62,6 +62,14 @@ Connection conexao = null;
         TelaFuncionarios funcionario = new TelaFuncionarios();
         funcionario.setVisible(true);
     }
+    
+    public void TelaQuarto(){
+        TelaQuarto quarto = new TelaQuarto();
+        quarto.setVisible(true);
+        Desktop.add(quarto);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,6 +99,7 @@ Connection conexao = null;
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -143,11 +152,6 @@ Connection conexao = null;
         menCadRes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menCadRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/reserva (1).png"))); // NOI18N
         menCadRes.setText("Reserva");
-        menCadRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menCadResActionPerformed(evt);
-            }
-        });
         menCad.add(menCadRes);
 
         menCadUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -158,6 +162,11 @@ Connection conexao = null;
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/encoreb/icones/quarto.png"))); // NOI18N
         jMenuItem1.setText("Quarto");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         menCad.add(jMenuItem1);
 
         jMenuBar1.add(menCad);
@@ -273,11 +282,10 @@ Connection conexao = null;
 
     }//GEN-LAST:event_menCadFuncActionPerformed
 
-    private void menCadResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadResActionPerformed
-        TelaReserva telares = new TelaReserva();
-        telares.setVisible(true);
-        Desktop.add(telares);
-    }//GEN-LAST:event_menCadResActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        TelaQuarto();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
